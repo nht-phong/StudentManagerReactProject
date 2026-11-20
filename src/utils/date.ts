@@ -28,16 +28,16 @@ export function isValidISODate(value: string): boolean {
   return getTodayISO(parsed) === value;
 }
 
-/** Example output: "Sat, 28 Nov 2026". */
+/** Example output: "T7, 28/11/2026". */
 export function formatEventDate(value: string): string {
   if (!isValidISODate(value)) {
     return value;
   }
 
-  return new Intl.DateTimeFormat('en-GB', {
+  return new Intl.DateTimeFormat('vi-VN', {
     weekday: 'short',
     day: '2-digit',
-    month: 'short',
+    month: '2-digit',
     year: 'numeric',
   }).format(new Date(`${value}T00:00:00`));
 }

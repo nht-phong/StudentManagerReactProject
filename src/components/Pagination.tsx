@@ -21,12 +21,11 @@ export default function Pagination({
 
   return (
     <nav
-      aria-label="Pagination"
+      aria-label="Phân trang"
       className="flex flex-col items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 sm:flex-row"
     >
       <p className="text-sm text-slate-500">
-        Page <span className="font-semibold text-slate-700">{page}</span> of {pages} · {total}{' '}
-        {total === 1 ? 'event' : 'events'}
+        Trang <span className="font-semibold text-slate-700">{page}</span>/{pages} · {total} sự kiện
       </p>
 
       <div className="flex items-center gap-2">
@@ -37,7 +36,7 @@ export default function Pagination({
           }}
           disabled={isDisabled || page <= 1}
         >
-          Previous
+          Trước
         </Button>
 
         <Button
@@ -47,7 +46,7 @@ export default function Pagination({
           }}
           disabled={isDisabled || page >= pages}
         >
-          Next
+          Sau
         </Button>
       </div>
     </nav>

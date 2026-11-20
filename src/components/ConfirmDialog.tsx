@@ -21,8 +21,8 @@ export default function ConfirmDialog({
   open,
   title,
   children,
-  confirmLabel = 'Delete',
-  cancelLabel = 'Cancel',
+  confirmLabel = 'Xóa',
+  cancelLabel = 'Hủy',
   isConfirming = false,
   onConfirm,
   onCancel,
@@ -81,7 +81,7 @@ export default function ConfirmDialog({
             {cancelLabel}
           </Button>
           <Button variant="danger" onClick={onConfirm} isLoading={isConfirming}>
-            {isConfirming ? 'Deleting...' : confirmLabel}
+            {isConfirming ? 'Đang xóa...' : confirmLabel}
           </Button>
         </div>
       </div>

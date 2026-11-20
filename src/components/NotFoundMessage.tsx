@@ -17,7 +17,7 @@ export default function NotFoundMessage({ title, description }: NotFoundMessageP
         to="/events"
         className="mt-6 inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700"
       >
-        Back to the event list
+        Quay lại danh sách sự kiện
       </Link>
     </div>
   );

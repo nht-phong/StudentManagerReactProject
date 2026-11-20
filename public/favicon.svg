@@ -1,12 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Club Event Manager">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sự kiện câu lạc bộ">
   <rect width="64" height="64" rx="14" fill="#4f46e5" />
-  <text
-    x="32"
-    y="42"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="24"
-    font-weight="700"
+  <path
     fill="#ffffff"
-    text-anchor="middle"
-  >CE</text>
+    d="M44 20h-3v-3a2 2 0 0 0-4 0v3H27v-3a2 2 0 0 0-4 0v3h-3a4 4 0 0 0-4 4v20a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V24a4 4 0 0 0-4-4Zm0 24H20V30h24v14Z"
+  />
 </svg>

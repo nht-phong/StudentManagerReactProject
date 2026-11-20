@@ -60,7 +60,7 @@ function ToastItem({ toast, onDismiss }: ToastItemProps) {
           onDismiss(toast.id);
         }}
         className="rounded p-1 text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
-        aria-label="Dismiss notification"
+        aria-label="Đóng thông báo"
       >
         ✕
       </button>

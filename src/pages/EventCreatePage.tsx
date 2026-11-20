@@ -17,10 +17,10 @@ export default function EventCreatePage() {
 
     try {
       const createdEvent = await createEvent(formValuesToEventInput(values));
-      showToast(`"${createdEvent.name}" was created.`);
+      showToast(`Đã tạo sự kiện "${createdEvent.name}".`);
       navigate(`/events/${createdEvent.id}`, { replace: true });
     } catch (error) {
-      showToast(getApiErrorMessage(error, 'Could not create the event. Please try again.'), 'error');
+      showToast(getApiErrorMessage(error, 'Không thể tạo sự kiện. Vui lòng thử lại.'), 'error');
       // The page stays open, so the user can fix the problem and try again.
       setIsSubmitting(false);
     }
@@ -29,16 +29,18 @@ export default function EventCreatePage() {
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <header>
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">New event</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Thêm sự kiện mới
+        </h1>
         <p className="mt-1 text-sm text-slate-600">
-          Fill in the details below. Fields marked with * are required.
+          Điền thông tin bên dưới. Các ô có dấu * là bắt buộc.
         </p>
       </header>
 
       <EventForm
         mode="create"
         initialValues={createEmptyEventFormValues()}
-        submitLabel="Create event"
+        submitLabel="Tạo sự kiện"
         isSubmitting={isSubmitting}
         cancelTo="/events"
         onSubmit={(values) => {

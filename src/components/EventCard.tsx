@@ -24,29 +24,31 @@ export default function EventCard({ event, onDeleted }: EventCardProps) {
 
       <dl className="mt-3 space-y-1.5 text-sm text-slate-600">
         <div>
-          <dt className="sr-only">Date and time</dt>
+          <dt className="sr-only">Ngày và giờ</dt>
           <dd>
             {formatEventDate(event.date)} · {formatTimeRange(event.startTime, event.endTime)}
           </dd>
         </div>
 
         <div>
-          <dt className="sr-only">Format</dt>
+          <dt className="sr-only">Hình thức</dt>
           <dd>
             <FormatBadge format={event.format} />
           </dd>
         </div>
 
         <div className="flex gap-2">
-          <dt className="sr-only">{event.format === 'offline' ? 'Location' : 'Join link'}</dt>
+          <dt className="sr-only">
+            {event.format === 'offline' ? 'Địa điểm' : 'Đường dẫn tham gia'}
+          </dt>
           <dd className="truncate">
             {event.format === 'offline' ? event.location : event.joinUrl}
           </dd>
         </div>
 
         <div>
-          <dt className="sr-only">Capacity</dt>
-          <dd>{event.capacity} seats</dd>
+          <dt className="sr-only">Số chỗ tối đa</dt>
+          <dd>{event.capacity} chỗ</dd>
         </div>
       </dl>
 
@@ -55,13 +57,13 @@ export default function EventCard({ event, onDeleted }: EventCardProps) {
           to={`/events/${event.id}`}
           className="rounded-lg px-2 py-1.5 text-sm font-semibold text-indigo-600 transition hover:bg-indigo-50"
         >
-          View details
+          Xem chi tiết
         </Link>
         <Link
           to={`/events/${event.id}/edit`}
           className="rounded-lg px-2 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100"
         >
-          Edit
+          Sửa
         </Link>
         <DeleteEventButton event={event} onDeleted={onDeleted} className="ml-auto" />
       </div>

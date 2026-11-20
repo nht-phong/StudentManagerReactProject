@@ -46,7 +46,7 @@ export default function EventEditPage() {
 
         setEvent(null);
         setIsNotFound(isNotFoundError(error));
-        setErrorMessage(getApiErrorMessage(error, 'Could not load this event.'));
+        setErrorMessage(getApiErrorMessage(error, 'Không thể tải sự kiện.'));
       } finally {
         if (!isCancelled) {
           setIsLoading(false);
@@ -66,23 +66,23 @@ export default function EventEditPage() {
 
     try {
       const updatedEvent = await updateEvent(eventId, formValuesToEventInput(values));
-      showToast(`"${updatedEvent.name}" was updated.`);
+      showToast(`Đã cập nhật sự kiện "${updatedEvent.name}".`);
       navigate(`/events/${eventId}`, { replace: true });
     } catch (error) {
-      showToast(getApiErrorMessage(error, 'Could not update the event. Please try again.'), 'error');
+      showToast(getApiErrorMessage(error, 'Không thể cập nhật sự kiện. Vui lòng thử lại.'), 'error');
       setIsSubmitting(false);
     }
   }
 
   if (isLoading) {
-    return <LoadingState message="Loading event..." />;
+    return <LoadingState message="Đang tải sự kiện..." />;
   }
 
   if (isNotFound) {
     return (
       <NotFoundMessage
-        title="Event not found"
-        description="This event does not exist or it was deleted, so it cannot be edited."
+        title="Không tìm thấy sự kiện"
+        description="Sự kiện không tồn tại hoặc đã bị xóa nên không thể chỉnh sửa."
       />
     );
   }
@@ -90,7 +90,7 @@ export default function EventEditPage() {
   if (errorMessage !== null || event === null) {
     return (
       <ErrorState
-        message={errorMessage ?? 'Could not load this event.'}
+        message={errorMessage ?? 'Không thể tải sự kiện.'}
         onRetry={() => {
           setReloadKey((current) => current + 1);
         }}
@@ -102,11 +102,11 @@ export default function EventEditPage() {
     <div className="mx-auto max-w-3xl space-y-6">
       <header>
         <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Edit event
+          Chỉnh sửa sự kiện
         </h1>
         <p className="mt-1 text-sm text-slate-600">
-          Change the details of <span className="font-medium text-slate-800">{event.name}</span> and
-          save.
+          Thay đổi thông tin của sự kiện{' '}
+          <span className="font-medium text-slate-800">{event.name}</span> rồi lưu lại.
         </p>
       </header>
 
@@ -114,7 +114,7 @@ export default function EventEditPage() {
         key={event.id}
         mode="edit"
         initialValues={eventToFormValues(event)}
-        submitLabel="Save changes"
+        submitLabel="Lưu thay đổi"
         isSubmitting={isSubmitting}
         cancelTo={`/events/${event.id}`}
         onSubmit={(values) => {

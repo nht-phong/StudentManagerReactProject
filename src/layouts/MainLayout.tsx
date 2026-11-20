@@ -30,26 +30,32 @@ export default function MainLayout() {
             to="/events"
             className="flex items-center gap-2.5 text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
           >
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-indigo-600 text-sm font-bold text-white">
-              CE
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-indigo-600 text-white">
+              <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5" aria-hidden="true">
+                <path
+                  fillRule="evenodd"
+                  d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </span>
-            <span className="text-base font-semibold tracking-tight">Club Event Manager</span>
+            <span className="text-base font-semibold tracking-tight">Sự kiện câu lạc bộ</span>
           </Link>
 
-          <nav className="flex items-center gap-1" aria-label="Main navigation">
+          <nav className="flex items-center gap-1" aria-label="Điều hướng chính">
             <Link
               to="/events"
               className={navItemClass(isEventsActive)}
               aria-current={isEventsActive ? 'page' : undefined}
             >
-              Events
+              Sự kiện
             </Link>
             <Link
               to="/events/new"
               className={navItemClass(isNewEventActive)}
               aria-current={isNewEventActive ? 'page' : undefined}
             >
-              New event
+              Thêm sự kiện
             </Link>
           </nav>
         </div>
@@ -61,7 +67,7 @@ export default function MainLayout() {
 
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto w-full max-w-5xl px-4 py-5 text-sm text-slate-500 sm:px-6">
-          <p>Club Event Manager — a React + TypeScript practice project.</p>
+          <p>Sự kiện câu lạc bộ — dự án thực hành React + TypeScript.</p>
         </div>
       </footer>
     </div>

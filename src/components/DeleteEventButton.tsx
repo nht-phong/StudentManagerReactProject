@@ -33,11 +33,11 @@ export default function DeleteEventButton({
     try {
       await deleteEvent(event.id);
       setIsDialogOpen(false);
-      showToast(`"${event.name}" was deleted.`);
+      showToast(`Đã xóa sự kiện "${event.name}".`);
       onDeleted();
     } catch (error) {
       setIsDialogOpen(false);
-      showToast(getApiErrorMessage(error, 'Could not delete this event. Please try again.'), 'error');
+      showToast(getApiErrorMessage(error, 'Không thể xóa sự kiện. Vui lòng thử lại.'), 'error');
     } finally {
       setIsDeleting(false);
     }
@@ -52,12 +52,12 @@ export default function DeleteEventButton({
           setIsDialogOpen(true);
         }}
       >
-        Delete
+        Xóa
       </Button>
 
       <ConfirmDialog
         open={isDialogOpen}
-        title="Delete event?"
+        title="Xóa sự kiện?"
         isConfirming={isDeleting}
         onConfirm={() => {
           void handleConfirm();
@@ -67,8 +67,9 @@ export default function DeleteEventButton({
         }}
       >
         <p>
-          Do you really want to delete <span className="font-semibold text-slate-900">{event.name}</span>?
-          This action cannot be undone.
+          Bạn có chắc muốn xóa sự kiện{' '}
+          <span className="font-semibold text-slate-900">{event.name}</span>? Hành động này không
+          thể hoàn tác.
         </p>
       </ConfirmDialog>
     </>

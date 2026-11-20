@@ -2,7 +2,9 @@
 
 A small CRUD web app for managing club events, built with **Vite + React + TypeScript + Tailwind CSS + React Router**. The data is stored in a local `json-server` API (`server/db.json`).
 
-You can browse all events (split into **Upcoming** and **Past**), open an event, create a new one, edit it, and delete it after a confirmation step. The list supports API pagination and API search.
+You can browse all events (split into **Sắp diễn ra** / Upcoming and **Đã diễn ra** / Past), open an event, create a new one, edit it, and delete it after a confirmation step. The list supports API pagination and API search.
+
+> **Language:** the user interface (labels, validation messages, toasts, empty/error states) is in **Vietnamese**, as required by the assignment. Source code, comments, this README and `AI_LOG.md` are in English.
 
 ## Tech stack
 
@@ -62,7 +64,7 @@ If you need another port, copy `.env.example` to `.env` and change the value.
 
 ## Screenshots
 
-**List page** – events are grouped into "Upcoming" and "Past", with search and pagination:
+- **List page** – events are grouped into "Sắp diễn ra" and "Đã diễn ra", with search and pagination:
 
 ![Event list page](docs/screenshots/list-page.png)
 
@@ -92,14 +94,15 @@ If you need another port, copy `.env.example` to `.env` and change the value.
 - 404 page for unknown URLs, and a "not found" message for a detail/edit URL with an unknown id.
 - The menu item of the current page is highlighted (`aria-current="page"`).
 - `/` redirects to `/events`.
+- The list groups events into **Sắp diễn ra** and **Đã diễn ra** by comparing the event date with today.
 
 ### Form and validation
 
 - One shared `EventForm` component is used by the create page and the edit page.
 - Reusable `TextField` (text, date, time, number, URL) and `RadioGroup` components.
 - Labels for every field, a `*` marker for required fields.
-- Errors are shown when the user leaves a field (blur) and when the form is submitted; invalid inputs get a red border and a message directly below.
-- The submit button is disabled and shows "Saving..." while the request is running, so the form cannot be sent twice.
+- Errors are shown when the user leaves a field (blur) and when the form is submitted; invalid inputs get a red border and a message in Vietnamese directly below.
+- The submit button is disabled and shows "Đang lưu..." while the request is running, so the form cannot be sent twice.
 
 | Field | Input | Rule |
 | --- | --- | --- |

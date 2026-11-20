@@ -166,7 +166,21 @@ I tested the network message by stopping json-server on purpose.
 
 **What I learned / changed:** It was the missing favicon. I added `public/favicon.svg` and `<link rel="icon" ...>` in `index.html`. After that the Console only had the React DevTools info message in dev mode (and nothing at all in the production build). I also added `aria-invalid`, `aria-describedby`, `aria-current` on the active menu link and `role="alert"` for the form summary, which the AI suggested when I asked about accessibility.
 
-## 19. Things I checked myself (not from the AI)
+## 19. Translating the interface to Vietnamese
+
+**My question:** "My teacher requires the form error messages to be in Vietnamese. Can you help me translate the validation messages and the other UI text, but keep the code in English?"
+
+**Summary of the answer:** The AI translated the messages and suggested using the exact terms of the assignment table: "Tên sự kiện", "Ngày tổ chức", "Giờ bắt đầu", "Giờ kết thúc", "Hình thức", "Địa điểm", "Đường dẫn tham gia", "Số chỗ tối đa", "Trực tiếp", "Trực tuyến". For the dates it recommended `Intl.DateTimeFormat('vi-VN')` instead of writing my own formatter.
+
+**What I learned / changed:** I reviewed every message against the rule table and changed a few words so they are accurate:
+
+- It suggested "Số chỗ tối đa phải là số nguyên dương", but 0 is an integer and still invalid. I kept "Số chỗ tối đa phải là số nguyên." and a separate range message "phải từ 1 đến 500".
+- "Giờ kết thúc phải sau giờ bắt đầu" is shorter than the AI's "phải lớn hơn", and it matches the assignment wording.
+- I used the assignment terms "Sắp diễn ra" / "Đã diễn ra" for the two list groups, and translated the buttons, toasts, empty states, confirm dialog and 404 page too, so the app is not half English and half Vietnamese.
+- `<html lang="vi">`, the page title, the menu and the date format were updated as well.
+- Code, comments, README and this log stay in English, so I can still explain every line during the oral check. I retook all screenshots after the translation.
+
+## 20. Things I checked myself (not from the AI)
 
 - Stopped json-server and reloaded `/events` → the friendly error message and the "Try again" button appear.
 - Started json-server again and clicked "Try again" → the list loads.
@@ -175,7 +189,8 @@ I tested the network message by stopping json-server on purpose.
 - Searched "zzzz" → "No matching events" (different from "No events yet").
 - Opened `/events/999` and `/events/999/edit` → "Event not found".
 - Opened `/some/random/page` → 404 page.
-- Made the window narrow (and used the browser device mode) → the layout stacks in one column, the menu still fits, and the form is usable on the phone.
+- Made the window narrow (and used the browser device mode) → the layout stacks in one column, the menu still fits (it wraps to a second line on a 390 px screen), and the form is usable on the phone.
+- Checked that all Vietnamese text (including the diacritics in the validation messages) renders correctly and that no English text is left in the interface.
 - Ran `npm run lint` and `npm run build` before submitting.
 
 ## Where I did **not** follow the AI

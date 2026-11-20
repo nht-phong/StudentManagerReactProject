@@ -18,13 +18,13 @@ import TextField from './TextField';
 const formatOptions: ReadonlyArray<RadioOption<EventFormat>> = [
   {
     value: 'offline',
-    label: 'In person',
-    description: 'Guests meet at a physical venue.',
+    label: 'Trực tiếp',
+    description: 'Người tham dự có mặt tại địa điểm tổ chức.',
   },
   {
     value: 'online',
-    label: 'Online',
-    description: 'Guests join through a meeting link.',
+    label: 'Trực tuyến',
+    description: 'Người tham dự vào bằng đường dẫn trực tuyến.',
   },
 ];
 
@@ -103,14 +103,14 @@ export default function EventForm({
           role="alert"
           className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700"
         >
-          Please fix the highlighted fields before saving.
+          Vui lòng sửa các ô được đánh dấu trước khi lưu.
         </div>
       )}
 
       <div className="space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
         <TextField
           id="event-name"
-          label="Event name"
+          label="Tên sự kiện"
           value={values.name}
           onChange={(value) => {
             handleChange('name', value);
@@ -119,8 +119,8 @@ export default function EventForm({
             handleBlur('name');
           }}
           error={visibleError('name')}
-          hint="Between 5 and 100 characters."
-          placeholder="e.g. UI/UX Design Workshop"
+          hint="Từ 5 đến 100 ký tự."
+          placeholder="VD: Workshop thiết kế UI/UX"
           required
           autoComplete="off"
         />
@@ -128,7 +128,7 @@ export default function EventForm({
         <div className="grid gap-5 sm:grid-cols-2">
           <TextField
             id="event-date"
-            label="Event date"
+            label="Ngày tổ chức"
             type="date"
             value={values.date}
             onChange={(value) => {
@@ -138,14 +138,14 @@ export default function EventForm({
               handleBlur('date');
             }}
             error={visibleError('date')}
-            hint={mode === 'create' ? 'The date cannot be in the past.' : undefined}
+            hint={mode === 'create' ? 'Ngày tổ chức không được ở quá khứ.' : undefined}
             min={mode === 'create' ? getTodayISO() : undefined}
             required
           />
 
           <TextField
             id="event-capacity"
-            label="Maximum capacity"
+            label="Số chỗ tối đa"
             type="number"
             value={values.capacity}
             onChange={(value) => {
@@ -155,7 +155,7 @@ export default function EventForm({
               handleBlur('capacity');
             }}
             error={visibleError('capacity')}
-            hint="A whole number from 1 to 500."
+            hint="Số nguyên từ 1 đến 500."
             min={1}
             max={500}
             step={1}
@@ -165,7 +165,7 @@ export default function EventForm({
 
           <TextField
             id="event-start-time"
-            label="Start time"
+            label="Giờ bắt đầu"
             type="time"
             value={values.startTime}
             onChange={(value) => {
@@ -180,7 +180,7 @@ export default function EventForm({
 
           <TextField
             id="event-end-time"
-            label="End time"
+            label="Giờ kết thúc"
             type="time"
             value={values.endTime}
             onChange={(value) => {
@@ -190,14 +190,14 @@ export default function EventForm({
               handleBlur('endTime');
             }}
             error={visibleError('endTime')}
-            hint="The end time must be after the start time."
+            hint="Giờ kết thúc phải sau giờ bắt đầu."
             required
           />
         </div>
 
         <RadioGroup
           name="event-format"
-          legend="Format"
+          legend="Hình thức"
           value={values.format}
           options={formatOptions}
           onChange={handleFormatChange}
@@ -206,7 +206,7 @@ export default function EventForm({
         {values.format === 'offline' ? (
           <TextField
             id="event-location"
-            label="Location"
+            label="Địa điểm"
             value={values.location}
             onChange={(value) => {
               handleChange('location', value);
@@ -215,15 +215,15 @@ export default function EventForm({
               handleBlur('location');
             }}
             error={visibleError('location')}
-            placeholder="e.g. Lab 204 - Building B"
-            hint="Required because this event is in person."
+            placeholder="VD: Phòng Lab 204 - Tòa B"
+            hint="Bắt buộc vì sự kiện tổ chức trực tiếp."
             required
             autoComplete="off"
           />
         ) : (
           <TextField
             id="event-join-url"
-            label="Join link"
+            label="Đường dẫn tham gia"
             type="url"
             value={values.joinUrl}
             onChange={(value) => {
@@ -234,7 +234,7 @@ export default function EventForm({
             }}
             error={visibleError('joinUrl')}
             placeholder="https://meet.example.com/abc"
-            hint="A full URL starting with http:// or https://."
+            hint="URL đầy đủ, bắt đầu bằng http:// hoặc https://."
             required
             autoComplete="off"
           />
@@ -246,11 +246,11 @@ export default function EventForm({
           to={cancelTo}
           className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
         >
-          Cancel
+          Hủy
         </Link>
 
         <Button type="submit" isLoading={isSubmitting} className="sm:min-w-44">
-          {isSubmitting ? 'Saving...' : submitLabel}
+          {isSubmitting ? 'Đang lưu...' : submitLabel}
         </Button>
       </div>
     </form>

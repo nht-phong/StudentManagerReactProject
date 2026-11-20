@@ -7,12 +7,12 @@ interface SearchBarProps {
 export default function SearchBar({
   value,
   onChange,
-  placeholder = 'Search events by name...',
+  placeholder = 'Tìm theo tên sự kiện...',
 }: SearchBarProps) {
   return (
     <div className="relative w-full sm:max-w-xs">
       <label htmlFor="event-search" className="sr-only">
-        Search events
+        Tìm kiếm sự kiện
       </label>
 
       <span
@@ -46,7 +46,7 @@ export default function SearchBar({
             onChange('');
           }}
           className="absolute inset-y-0 right-2 my-auto grid h-6 w-6 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
-          aria-label="Clear search"
+          aria-label="Xóa tìm kiếm"
         >
           ✕
         </button>

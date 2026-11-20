@@ -98,7 +98,7 @@ export default function EventListPage() {
         setEvents([]);
         setPages(1);
         setTotal(0);
-        setErrorMessage(getApiErrorMessage(error, 'Could not load the event list.'));
+        setErrorMessage(getApiErrorMessage(error, 'Không thể tải danh sách sự kiện.'));
       } finally {
         if (!isCancelled) {
           setIsLoading(false);
@@ -140,10 +140,10 @@ export default function EventListPage() {
       <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-            Club events
+            Sự kiện câu lạc bộ
           </h1>
           <p className="mt-1 max-w-xl text-sm text-slate-600">
-            Browse every event of the club, open its details, or add a new one.
+            Xem toàn bộ sự kiện của câu lạc bộ, mở chi tiết hoặc thêm sự kiện mới.
           </p>
         </div>
 
@@ -151,7 +151,7 @@ export default function EventListPage() {
           to="/events/new"
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 sm:self-auto"
         >
-          <span aria-hidden="true">+</span> New event
+          <span aria-hidden="true">+</span> Thêm sự kiện
         </Link>
       </header>
 
@@ -160,13 +160,13 @@ export default function EventListPage() {
 
         {!isFirstLoad && errorMessage === null && (
           <p className="text-sm text-slate-500" role="status">
-            {total} {total === 1 ? 'event' : 'events'}
-            {isSearching ? ` matching "${debouncedSearch}"` : ''}
+            {total} sự kiện
+            {isSearching ? ` khớp với "${debouncedSearch}"` : ''}
           </p>
         )}
       </div>
 
-      {isFirstLoad && <LoadingState message="Loading events..." />}
+      {isFirstLoad && <LoadingState message="Đang tải sự kiện..." />}
 
       {!isFirstLoad && errorMessage !== null && (
         <ErrorState message={errorMessage} onRetry={reloadEvents} />
@@ -176,8 +176,8 @@ export default function EventListPage() {
         <>
           {isSearching ? (
             <EmptyState
-              title="No matching events"
-              description={`No event matches "${debouncedSearch}". Try another keyword.`}
+              title="Không tìm thấy sự kiện"
+              description={`Không có sự kiện nào khớp với "${debouncedSearch}". Hãy thử từ khóa khác.`}
               action={
                 <Button
                   variant="secondary"
@@ -185,20 +185,20 @@ export default function EventListPage() {
                     handleSearchChange('');
                   }}
                 >
-                  Clear search
+                  Xóa tìm kiếm
                 </Button>
               }
             />
           ) : (
             <EmptyState
-              title="No events yet"
-              description="Create the first event of the club and it will show up here."
+              title="Chưa có sự kiện nào"
+              description="Hãy tạo sự kiện đầu tiên của câu lạc bộ, sự kiện sẽ hiện ở đây."
               action={
                 <Link
                   to="/events/new"
                   className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700"
                 >
-                  Create an event
+                  Tạo sự kiện
                 </Link>
               }
             />
@@ -210,23 +210,23 @@ export default function EventListPage() {
         <div className="space-y-8">
           {isLoading && (
             <p className="text-sm text-slate-500" role="status">
-              Updating results...
+              Đang cập nhật kết quả...
             </p>
           )}
 
           <EventGroup
-            title="Upcoming"
-            description="Events that take place today or later."
+            title="Sắp diễn ra"
+            description="Các sự kiện diễn ra từ hôm nay trở đi."
             events={upcomingEvents}
-            emptyMessage="No upcoming events on this page."
+            emptyMessage="Không có sự kiện sắp diễn ra trong trang này."
             onDeleted={reloadEvents}
           />
 
           <EventGroup
-            title="Past"
-            description="Events that already took place."
+            title="Đã diễn ra"
+            description="Các sự kiện đã diễn ra."
             events={pastEvents}
-            emptyMessage="No past events on this page."
+            emptyMessage="Không có sự kiện đã diễn ra trong trang này."
             onDeleted={reloadEvents}
           />
 

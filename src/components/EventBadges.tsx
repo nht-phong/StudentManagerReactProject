@@ -8,7 +8,7 @@ export function StatusBadge({ status }: { status: EventStatus }) {
 
   return (
     <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ${classes}`}>
-      {status === 'upcoming' ? 'Upcoming' : 'Past'}
+      {status === 'upcoming' ? 'Sắp diễn ra' : 'Đã diễn ra'}
     </span>
   );
 }
@@ -21,7 +21,7 @@ export function FormatBadge({ format }: { format: EventFormat }) {
 
   return (
     <span className={`rounded-md px-2 py-0.5 text-xs font-medium ring-1 ${classes}`}>
-      {format === 'offline' ? 'In person' : 'Online'}
+      {format === 'offline' ? 'Trực tiếp' : 'Trực tuyến'}
     </span>
   );
 }

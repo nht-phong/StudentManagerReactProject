@@ -19,14 +19,14 @@ export const api = axios.create({
 export function getApiErrorMessage(error: unknown, fallback: string): string {
   if (axios.isAxiosError(error)) {
     if (!error.response) {
-      return 'Cannot reach the API server. Make sure json-server is running with "npm run api", then try again.';
+      return 'Không kết nối được tới API. Hãy chạy json-server bằng lệnh "npm run api" rồi thử lại.';
     }
 
     if (error.response.status === 404) {
-      return 'The requested event could not be found. It may have been deleted.';
+      return 'Không tìm thấy sự kiện. Có thể sự kiện đã bị xóa.';
     }
 
-    return `The API returned an error (status ${error.response.status}). Please try again.`;
+    return `API trả về lỗi (mã ${error.response.status}). Vui lòng thử lại.`;
   }
 
   return fallback;

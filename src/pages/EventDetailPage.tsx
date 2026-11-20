@@ -42,7 +42,7 @@ export default function EventDetailPage() {
 
         setEvent(null);
         setIsNotFound(isNotFoundError(error));
-        setErrorMessage(getApiErrorMessage(error, 'Could not load this event.'));
+        setErrorMessage(getApiErrorMessage(error, 'Không thể tải sự kiện.'));
       } finally {
         if (!isCancelled) {
           setIsLoading(false);
@@ -58,14 +58,14 @@ export default function EventDetailPage() {
   }, [eventId, reloadKey]);
 
   if (isLoading) {
-    return <LoadingState message="Loading event..." />;
+    return <LoadingState message="Đang tải sự kiện..." />;
   }
 
   if (isNotFound) {
     return (
       <NotFoundMessage
-        title="Event not found"
-        description="This event does not exist or it was deleted. Please go back to the list and pick another one."
+        title="Không tìm thấy sự kiện"
+        description="Sự kiện không tồn tại hoặc đã bị xóa. Hãy quay lại danh sách và chọn sự kiện khác."
       />
     );
   }
@@ -73,7 +73,7 @@ export default function EventDetailPage() {
   if (errorMessage !== null || event === null) {
     return (
       <ErrorState
-        message={errorMessage ?? 'Could not load this event.'}
+        message={errorMessage ?? 'Không thể tải sự kiện.'}
         onRetry={() => {
           setReloadKey((current) => current + 1);
         }}
@@ -89,7 +89,7 @@ export default function EventDetailPage() {
         to="/events"
         className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 transition hover:text-indigo-700"
       >
-        <span aria-hidden="true">←</span> All events
+        <span aria-hidden="true">←</span> Tất cả sự kiện
       </Link>
 
       <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -109,34 +109,40 @@ export default function EventDetailPage() {
 
         <dl className="grid gap-x-8 gap-y-5 px-5 py-6 sm:grid-cols-2 sm:px-8">
           <div>
-            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Date</dt>
+            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Ngày tổ chức
+            </dt>
             <dd className="mt-1 text-sm text-slate-900">{formatEventDate(event.date)}</dd>
           </div>
 
           <div>
-            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Time</dt>
+            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Thời gian
+            </dt>
             <dd className="mt-1 text-sm text-slate-900">
               {formatTimeRange(event.startTime, event.endTime)}
             </dd>
           </div>
 
           <div>
-            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Format</dt>
+            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Hình thức
+            </dt>
             <dd className="mt-1 text-sm text-slate-900">
-              {event.format === 'offline' ? 'In person' : 'Online'}
+              {event.format === 'offline' ? 'Trực tiếp' : 'Trực tuyến'}
             </dd>
           </div>
 
           <div>
             <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Maximum capacity
+              Số chỗ tối đa
             </dt>
-            <dd className="mt-1 text-sm text-slate-900">{event.capacity} seats</dd>
+            <dd className="mt-1 text-sm text-slate-900">{event.capacity} chỗ</dd>
           </div>
 
           <div className="sm:col-span-2">
             <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              {event.format === 'offline' ? 'Location' : 'Join link'}
+              {event.format === 'offline' ? 'Địa điểm' : 'Đường dẫn tham gia'}
             </dt>
             <dd className="mt-1 text-sm text-slate-900">
               {event.format === 'offline' ? (
@@ -160,7 +166,7 @@ export default function EventDetailPage() {
             to={`/events/${event.id}/edit`}
             className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700"
           >
-            Edit event
+            Chỉnh sửa sự kiện
           </Link>
 
           <DeleteEventButton
@@ -174,7 +180,7 @@ export default function EventDetailPage() {
             to="/events"
             className="ml-auto inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
           >
-            Back to list
+            Quay lại danh sách
           </Link>
         </div>
       </article>

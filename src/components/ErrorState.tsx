@@ -7,7 +7,7 @@ interface ErrorStateProps {
 }
 
 export default function ErrorState({
-  title = 'Something went wrong',
+  title = 'Đã có lỗi xảy ra',
   message,
   onRetry,
 }: ErrorStateProps) {
@@ -24,7 +24,7 @@ export default function ErrorState({
 
       {onRetry !== undefined && (
         <Button variant="secondary" className="mt-5" onClick={onRetry}>
-          Try again
+          Thử lại
         </Button>
       )}
     </div>

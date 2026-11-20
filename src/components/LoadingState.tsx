@@ -2,7 +2,7 @@ interface LoadingStateProps {
   message?: string;
 }
 
-export default function LoadingState({ message = 'Loading...' }: LoadingStateProps) {
+export default function LoadingState({ message = 'Đang tải...' }: LoadingStateProps) {
   return (
     <div
       role="status"
