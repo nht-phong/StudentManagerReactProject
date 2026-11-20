@@ -1,0 +1,104 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "name": "Spring Music Gala",
+      "date": "2026-08-22",
+      "startTime": "19:30",
+      "endTime": "22:00",
+      "format": "offline",
+      "location": "University Auditorium",
+      "joinUrl": "",
+      "capacity": 400
+    },
+    {
+      "id": "2",
+      "name": "Freshers' Welcome Night",
+      "date": "2026-09-12",
+      "startTime": "18:00",
+      "endTime": "21:00",
+      "format": "offline",
+      "location": "Hall A - Student Center",
+      "joinUrl": "",
+      "capacity": 200
+    },
+    {
+      "id": "3",
+      "name": "Intro to Competitive Programming",
+      "date": "2026-10-03",
+      "startTime": "14:00",
+      "endTime": "16:30",
+      "format": "online",
+      "location": "",
+      "joinUrl": "https://meet.google.com/abc-defg-hij",
+      "capacity": 150
+    },
+    {
+      "id": "4",
+      "name": "Autumn Charity Run",
+      "date": "2026-10-25",
+      "startTime": "06:30",
+      "endTime": "09:00",
+      "format": "offline",
+      "location": "City Park - Main Gate",
+      "joinUrl": "",
+      "capacity": 300
+    },
+    {
+      "id": "5",
+      "name": "UI/UX Design Workshop",
+      "date": "2026-11-28",
+      "startTime": "09:00",
+      "endTime": "11:30",
+      "format": "offline",
+      "location": "Lab 204 - Building B",
+      "joinUrl": "",
+      "capacity": 40
+    },
+    {
+      "id": "6",
+      "name": "Monthly Book Club: Sci-Fi Edition",
+      "date": "2026-12-05",
+      "startTime": "19:00",
+      "endTime": "20:30",
+      "format": "online",
+      "location": "",
+      "joinUrl": "https://zoom.us/j/1234567890",
+      "capacity": 60
+    },
+    {
+      "id": "7",
+      "name": "Winter Coding Marathon",
+      "date": "2026-12-19",
+      "startTime": "08:00",
+      "endTime": "20:00",
+      "format": "offline",
+      "location": "Innovation Hub - Floor 3",
+      "joinUrl": "",
+      "capacity": 120
+    },
+    {
+      "id": "8",
+      "name": "Career Talk with Alumni",
+      "date": "2027-01-16",
+      "startTime": "13:30",
+      "endTime": "15:30",
+      "format": "online",
+      "location": "",
+      "joinUrl": "https://teams.microsoft.com/l/meetup-join/career-talk",
+      "capacity": 500
+    },
+    {
+      "id": "9",
+      "name": "Photography Walk: Old Quarter",
+      "date": "2027-02-07",
+      "startTime": "07:00",
+      "endTime": "10:00",
+      "format": "offline",
+      "location": "Hoan Kiem Lake - North Entrance",
+      "joinUrl": "",
+      "capacity": 25
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
