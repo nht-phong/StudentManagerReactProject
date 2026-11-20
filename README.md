@@ -4,8 +4,6 @@ A small CRUD web app for managing club events, built with **Vite + React + TypeS
 
 You can browse all events (split into **Upcoming** and **Past**), open an event, create a new one, edit it, and delete it after a confirmation step. The list supports API pagination and API search.
 
-![Event list page](docs/screenshots/list-page.png)
-
 ## Tech stack
 
 | Area | Choice |
@@ -216,6 +214,4 @@ reactbig/
 
 ## Demo video
 
-The 3–5 minute walkthrough video is uploaded to Google Drive (public view). Paste the link here before submitting:
-
-`https://drive.google.com/...`
+The required 3–5 minute walkthrough video is uploaded to Google Drive with public view access. Add the sharing link in this section before submitting the assignment.

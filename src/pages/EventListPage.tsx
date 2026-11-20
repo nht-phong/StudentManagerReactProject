@@ -84,6 +84,12 @@ export default function EventListPage() {
         setEvents(result.events);
         setPages(result.pages);
         setTotal(result.total);
+
+        // If the last item of the last page was deleted, that page no longer
+        // exists. Go back to the first page instead of showing an empty list.
+        if (result.events.length === 0 && result.total > 0 && page > 1) {
+          setPage(1);
+        }
       } catch (error) {
         if (isCancelled) {
           return;

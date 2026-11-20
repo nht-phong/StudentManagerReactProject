@@ -53,7 +53,15 @@ export default function ConfirmDialog({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-slate-900/50" aria-hidden="true" onClick={onCancel} />
+      <div
+        className="absolute inset-0 bg-slate-900/50"
+        aria-hidden="true"
+        onClick={() => {
+          if (!isConfirming) {
+            onCancel();
+          }
+        }}
+      />
 
       <div
         role="dialog"

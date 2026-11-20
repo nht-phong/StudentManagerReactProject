@@ -111,6 +111,7 @@ export default function EventEditPage() {
       </header>
 
       <EventForm
+        key={event.id}
         mode="edit"
         initialValues={eventToFormValues(event)}
         submitLabel="Save changes"
